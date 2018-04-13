@@ -12,7 +12,8 @@ Page({
     weatherData: '',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    weatherImage: ''
+    weatherImage: '',
+    weatherMainImage:''
   },
   //事件处理函数
   bindViewTap: function () {
@@ -35,8 +36,10 @@ Page({
       that.setData({
         weatherData: weatherData,
         temperatureData: temperatureData,
-        currentCountryName: weatherData.currentCity
+        currentCountryName: weatherData.currentCity,
+        weatherMainImage: allWeatherData.weather_data[0].dayPictureUrl
       });
+      console.log(allWeatherData.weather_data[0].dayPictureUrl)
       console.log(weatherData)
       console.log(data)
     }

@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <view class="container">
-   <!-- <view class="userinfo">
+  <!-- <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
@@ -20,21 +20,34 @@
   </view> -->
   <view class='body'>
     <view class='button-group'>
-    <button type='default' class='circle-button'>
-    
-    </button>
-    <button type='default' class='circle-button'>
-    
-    </button>
-    <button type='default' class='circle-button'>
-    
-    </button>
+      <button type='default' class='circle-button'>
+        <image src='../../libs/icons/refresh.png'></image>
+      </button>
+      <button type='default' class='circle-button'>
+        <image src='../../libs/icons/add.png'></image>
+      </button>
+      <button type='default' class='circle-button'>
+         <image src='../../libs/icons/other.png'></image>
+      </button>
     </view>
     <view class='weather-detail-container'>
-
+      <view class='weather-detail-main'>
+      <image src='{{weatherMainImage}}'></image>
+      <view class='weather-main-text-container'>
+      <text>23度</text>
+      <text>阴</text>
+      <text>空气质量49</text>
+      <text>优</text>
+      <text>更新时间</text>     
+      </view>
+      </view>
     </view>
 
     <view class='week-weather-container'></view>
   </view>
   <image src='{{weatherImage}}'></image>
+
+  <view class='weather-container'>
+
+  </view>
 </view>
