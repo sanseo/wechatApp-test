@@ -45,6 +45,7 @@
   width: 50%;
   float: right;
   margin-bottom: 50rpx;
+  margin-right: 23rpx;
 }
 
 
@@ -61,7 +62,7 @@
   align-items: center;
   justify-content: center;
   width:90%;
-  height:300rpx;
+  height:400rpx;
   margin: 0rpx auto;
   border:1px solid #ccc;
   border-radius: 10rpx;
@@ -88,4 +89,33 @@
   height:195rpx;
   display: inline-block;
   padding-left: 40rpx;
+}
+.week-weather-container{
+  display: flex;
+  width:90%;
+  margin: 50rpx auto;
+  height:300rpx;
+  border:1px solid #ccc;
+  background: 1px solid #ddd;
+}
+
+.week-weather-container image{
+  width: 46rpx;
+  height:46rpx;
+  display: inline-block;
+  margin-top: 30rpx;
+}
+
+.week-weather-container text{
+  text-align: center;
+  width:100%;
+  /* display: block; */
+}
+
+
+.week-weather-item{
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

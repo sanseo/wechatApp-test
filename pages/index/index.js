@@ -13,7 +13,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     weatherImage: '',
-    weatherMainImage:''
+    weatherMainImage: '',
+    weekWeather: ''
   },
   //事件处理函数
   bindViewTap: function () {
@@ -33,15 +34,26 @@ Page({
       var allWeatherData = data.originalData.results[0]
       var weatherData = data.currentWeather[0];
       var temperatureData = '温度' + weatherData.temperature;
+      allWeatherData.weather_data[0].date = allWeatherData.weather_data[0].date.slice(0, 2)
+
+      allWeatherData.weather_data = allWeatherData.weather_data.map((item) => {
+        console.log(item);
+        item.temperature = item.temperature.slice(item.temperature.indexOf('~') + 1,
+          item.temperature.length) + '~' +
+          item.temperature.slice(0, item.temperature.indexOf('~'))+'℃'
+        console.log(item);
+        return item;
+      })
       that.setData({
         weatherData: weatherData,
         temperatureData: temperatureData,
         currentCountryName: weatherData.currentCity,
-        weatherMainImage: allWeatherData.weather_data[0].dayPictureUrl
+        weatherMainImage: allWeatherData.weather_data[0].dayPictureUrl,
+        weekWeather: allWeatherData.weather_data
       });
       console.log(allWeatherData.weather_data[0].dayPictureUrl)
-      console.log(weatherData)
-      console.log(data)
+      console.log(allWeatherData.weather_data)
+
     }
 
     BMap.weather({
